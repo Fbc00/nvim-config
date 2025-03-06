@@ -59,7 +59,6 @@ return {
 			local servers = {
 				-- LSP Servers
 				bashls = {},
-				biome = {},
 				cssls = {},
 				gleam = {
 					settings = {
@@ -72,6 +71,12 @@ return {
 					cmd = { "vscode-eslint-language-server", "--stdio", "--max-old-space-size=12288" },
 					settings = {
 						format = true,
+						rulesCustomizations = { pathGroups = { { pattern = "~/*", group = "internal" } } },
+
+						codeActionOsSave = {
+							enable = true,
+							mode = "all",
+						},
 					},
 				},
 				html = {},
@@ -94,7 +99,12 @@ return {
 					},
 				},
 				nil_ls = {},
-				pyright = {},
+				pyright = {
+
+					settings = {
+						python = { pythonPath = ".venv/bin/python" },
+					},
+				},
 				sqlls = {},
 				tailwindcss = {
 					filetypes = {
@@ -198,9 +208,9 @@ return {
 				lsp_format = "fallback",
 			},
 			formatters_by_ft = {
-				javascript = { "biome" },
-				typescript = { "biome" },
-				typescriptreact = { "biome" },
+				javascript = { "eslint" },
+				typescript = { "eslint" },
+				typescriptreact = { "eslint" },
 				svelte = { "prettierd", "prettier " },
 				lua = { "stylua" },
 			},

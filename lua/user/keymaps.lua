@@ -13,9 +13,6 @@ local M = {}
 -- Disable Space bar since it'll be used as the leader key
 nnoremap("<space>", "<nop>")
 
--- Swap between last two buffers
-nnoremap("<leader>'", "<C-^>", { desc = "Switch to last buffer" })
-
 -- Save with leader key
 nnoremap("<C-s>", "<cmd>w<cr>", { silent = false })
 
